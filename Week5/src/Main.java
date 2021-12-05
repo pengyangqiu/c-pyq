@@ -45,26 +45,18 @@ public class Main {
     public static void dfs(int i, int[] nums, List<Integer> temp){
         if(i==nums.length)
             return;
-            l.add(temp);
         for(int j=i;j<nums.length;j++){
             dfs(i+1,nums,temp);
             temp.add(nums[j]);
+            l.add(temp);
             dfs(i+1,nums,temp);
         }
     }
-
-
-
     public static void subset(int[] nums){
-
         List temp = new ArrayList();
-//        int []vis= new int[nums.length];
         dfs(0,nums,temp);
         for(int i=0;i<nums.length;i++){
             System.out.println(l.get(i));
         }
-
-
     }
-
 }
