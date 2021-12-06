@@ -43,19 +43,17 @@ public class Main {
         System.out.println(a[n]);
     }
     public static void dfs(int i, int[] nums, List<Integer> temp){
-        if(i==nums.length)
-            return;
+        l.add(temp);
         for(int j=i;j<nums.length;j++){
-            dfs(i+1,nums,temp);
             temp.add(nums[j]);
-            l.add(temp);
-            dfs(i+1,nums,temp);
+            dfs(j+1,nums,temp);
+            l.remove(l.size()-1);
         }
     }
     public static void subset(int[] nums){
         List temp = new ArrayList();
         dfs(0,nums,temp);
-        for(int i=0;i<nums.length;i++){
+        for(int i=0;i<l.size();i++){
             System.out.println(l.get(i));
         }
     }
