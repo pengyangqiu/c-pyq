@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Main {
 //    private static UnicodeSet l;
-    static List <List<Integer>>l= new ArrayList<>();
+    static List <List<Integer>>ans= new ArrayList<>();
 
     public static  void  main(String []args){
         System.out.println("--------------作业一-------------");
@@ -42,19 +42,19 @@ public class Main {
         }
         System.out.println(a[n]);
     }
-    public static void dfs(int i, int[] nums, List<Integer> temp){
-        l.add(temp);
+    public static void dfs(int i, int[] nums, List<Integer>temp){
+        ans.add(new ArrayList<>(temp));
         for(int j=i;j<nums.length;j++){
             temp.add(nums[j]);
             dfs(j+1,nums,temp);
-            l.remove(l.size()-1);
+            temp.remove(temp.size()-1);
         }
     }
     public static void subset(int[] nums){
         List temp = new ArrayList();
         dfs(0,nums,temp);
-        for(int i=0;i<l.size();i++){
-            System.out.println(l.get(i));
+        for(int i=0;i<ans.size();i++){
+            System.out.println(ans.get(i));
         }
     }
 }
